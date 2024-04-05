@@ -16,4 +16,4 @@ function EventCard(props) {
   );
 }
 
-export default Card;
+export default EventCard;
