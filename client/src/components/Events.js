@@ -1,4 +1,4 @@
-const events = [
+const Events = [
     {
         id: 1,
         name: "Tech",
@@ -47,5 +47,5 @@ const events = [
     
   ];
   
-  export default contacts;
+  export default Events;
   
