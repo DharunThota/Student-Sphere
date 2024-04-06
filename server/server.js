@@ -20,6 +20,17 @@ const port = 3000;
 app.use(bodyParser.json());
 app.use(cors());
 
+/*CLUB */
+//get club info
+
+//update club info
+
+//add members
+
+//remove members
+
+//update position
+
 /*ANNOUNCEMENTS */
 //get all announcements
 app.get("api/v1/announcements", async (req, res) => {
@@ -56,7 +67,14 @@ app.put("api/v1/announcemets/:id", async(req, res) => {
 });
 
 //delete an announcement
-app.delete("api/v1/announcements")
+app.delete("api/v1/announcements/:id", async (req, res) => {
+    try {
+        const result = await db.query("delete from announcement where id=$1 returning *", [req.params.id]);
+        res.status(200).json(result.rows);
+    } catch (error) {
+        console.log(error);
+    }
+})
 
 
 /*EVENTS */
