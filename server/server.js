@@ -20,25 +20,90 @@ const port = 3000;
 app.use(bodyParser.json());
 app.use(cors());
 
+/*ANNOUNCEMENTS */
+//get all announcements
+app.get("api/v1/announcements", async (req, res) => {
+    try {
+        const result = await db.query("select * from announcement;");
+        res.status(200).json(result.rows);
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+//post an announcement
+app.post("api/v1/announcements", async (req, res) => {
+    try {
+        const result = await db.query("insert into events(club_id, description, date, title) values($1,$2,$3,$4) returning *;", 
+            [req.body.club_id, req.body.description, req.body.date, req.body.title]
+        );
+        res.status(200).json(result.rows);
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+//edit an announcement
+app.put("api/v1/announcemets/:id", async(req, res) => {
+    try {
+        const result = await db.query("update announcement set club_id=$1, description=$2, date=$3, title=$4 where id=$5", 
+            [req.body.club_id, req.body.description, req.body.date, req.body.title, req.params.id]
+        );
+        res.status(200).json(result.rows);
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+//delete an announcement
+app.delete("api/v1/announcements")
+
+
+/*EVENTS */
+// get upcoming/ongoing/completed events
 app.get("/api/v1/events/:status", async (req, res) => {
     try {
-        const result = await db.query("select * from events where status = $1", [req.params.status]);
+        const result = await db.query("select * from events where status = $1;", [req.params.status]);
         //console.log(result.rows);
-        res.json(result.rows);
+        res.status(200).json(result.rows);
     } catch (error) {
         console.log(error)
     }
 });
 
+//post an event
 app.post("api/v1/events", async (req, res) => {
     try{
-        const result = await db.query("insert into events(club_id, type, description, date, time, venue, status) values()")
+        const result = await db.query("insert into events(club_id, type, description, date, time, venue, status, title) values($1,$2,$3,$4,$5,$6,$7,$8) returning *;",
+            [req.body.club_id, req.body.type, req.body.description, req.body.date, req.body.time, req.body.venue, req.body.status, req.body.title]
+        );
+        res.status(200).json(result.rows);
     } catch(error) {
+        console.log(error);
+    }
+});
+
+//update event
+app.put("api/v1/events/:id", async (req, res) => {
+    try {
+        const result = await db.query("update event set club_id=$1, type=$2, description=$3, date=$4, time=$5, venue=$6, status=$7, title=$8 where event_id=$9 returning *",
+            [req.body.club_id, req.body.type, req.body.description, req.body.date, req.body.time, req.body.venue, req.body.status, req.body.title, req.params.id]
+        );
+        res.status(200).json(result.rows);
+    } catch (error) {
         console.log(error);
     }
 })
 
-app.get()
+//delete event
+app.delete("api/v1/events/:id", async (req, res) => {
+    try {
+        const result = await db.query("delete from event where id=$1 returning *", [req.params.id]);
+        res.status(200).json(result.rows);
+    } catch (error) {
+        console.log(error);
+    }
+})
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
