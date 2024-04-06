@@ -4,8 +4,8 @@ function EventCard(props) {
   return (
     <div className="card">
       <div>
-        <h2>{props.name}</h2>
         <img src={props.img} alt="avatar_img" />
+        <h1>{props.name}</h1>
       </div>
       <div className="body">
         <p>{props.date}</p>

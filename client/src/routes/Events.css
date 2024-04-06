@@ -7,16 +7,28 @@
 .body {
     font-family: 'Roboto', sans-serif;
     background-color: #e5fab8;
-    padding: 0 16px;
+    padding: 10px;
 }
 
 .card {
-    background: #fff;
+    background: #f8f9fa;
     border-radius: 7px;
     box-shadow: 0 2px 5px #ccc;
     padding: 10px;
     width: 240px;
     margin: 16px;
     float: left;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 200px;
 }
+.box img {
+    align-self: stretch;
+}
+.box h1 {
+    align-self: center;
+}
+
 
