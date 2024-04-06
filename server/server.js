@@ -21,15 +21,63 @@ app.use(bodyParser.json());
 app.use(cors());
 
 /*CLUB */
+//get all clubs
+app.get("/api/v1/clubs", async (req, res) => {
+    try {
+        const result = db.query("select * from club");
+        res.status(200).json(result.rows);
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+//get technical/cultural clubs
+app.get("/api/v1/clubs/:type", async (req, res) => {
+    try {
+        const result = db.query("select * from club where type=$1", [req.params.type]);
+        res.status(200).json(result.rows);
+    } catch (error) {
+        console.log(error);
+    }
+});
+
 //get club info
+app.get("/api/v1/clubs/:id", async (req, res) => {
+    try {
+        const result = db.query("select * from club where club_id=$1", [req,params.id]);
+        res.status(200).json(result.rows);
+    } catch (error) {
+        console.log(error);
+    }
+});
 
 //update club info
+app.put("/api/v1/clubs/:id", async (req, res) => {
+    try {
+        const result = db.query("update club set name=$1, type=$2, description=$3, lead=$4, pic=$5, room_no=$6 where club_id=$7 returning *",
+            [req.body.name, req.body.type, req.body.description, req.body.lead, req.body.pic, req.body.room_no, req.params.id]
+        );
+        res.status(200).json(result.rows);
+    } catch (error) {
+        console.log(error);
+    }
+});
 
 //add members
+app.post("/api/v1/clubs/:id/members", async (req, res) => {
+    try {
+        const result = db.query("select * from club");
+        res.status(200).json(result.rows);
+    } catch (error) { 
+        console.log(error);
+    }
+});
 
 //remove members
 
+
 //update position
+
 
 /*ANNOUNCEMENTS */
 //get all announcements
