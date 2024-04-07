@@ -1,31 +1,10 @@
-<<<<<<< HEAD
-.container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-=======
 .eventsPage{
     padding-left: 10%;
     padding-right: 10%;
->>>>>>> 13d6c505742c92b5a8497174cb91734ae4a71080
 }
 
 .ecard {
     background: #fff;    
-<<<<<<< HEAD
-    padding: 0px;
-    width: 300px;
-    margin: 30px;
-    background-color: #fff;
-
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgb(154, 196, 235);
-    overflow: hidden; 
-    
-    /* transition: background-color 1.3s ease, transform 1.3s ease; */
-    transition: right 2s ease, background 2s ease; 
-    overflow-y: auto;
-=======
     padding: 10px;
     width: 270px;
     height: 360px;
@@ -36,7 +15,6 @@
     border-color: #000;
     background-color: #fff;
     box-shadow: 5px 4px black;
->>>>>>> 13d6c505742c92b5a8497174cb91734ae4a71080
 }
 
 .ecard h1 {
@@ -52,24 +30,6 @@
     max-height: 100px;
 }
 
-<<<<<<< HEAD
-
-.ecard img {
-    border-radius: 10px;    
-    width: 300px;
-    height: 250px;
-    padding: 10px;
-}
-
-.ecard .body {  
-    display: flex;
-    justify-content: center;
-    gap : 10px;
-    flex-direction: row  ;
-    padding: 0px 10px 10px 10px;
-    
-    color: #000;
-=======
 .ecard img {    
     width: 100%;
     height: 200px;
@@ -82,47 +42,13 @@
     float: right;
     color: black;
     background-size: cover;
->>>>>>> 13d6c505742c92b5a8497174cb91734ae4a71080
     position: relative;
 }
 
 .ecard .body p {
-<<<<<<< HEAD
-    
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    margin: 0;    
-}
-
-.ecard .body break {
-    height: 1.2rem;
-    border-left: 1px solid #000;
-}
-
-.ecard info {
-    display: flex;
-    justify-content: center;
-    gap : 10px;
-    flex-direction: row  ;
-    padding: 0px 10px 10px 10px;
-    
-    color: #000;
-    position: fixed;
-}
-
-.ecard:hover {
-    background: #9ce4f3;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    overflow-y: visible;
-}
-
-.ecard:hover img, .ecard:hover h1, .ecard:hover .body {
-    opacity: 0;
-=======
     position: relative;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     text-align: right;
     margin: 0;
->>>>>>> 13d6c505742c92b5a8497174cb91734ae4a71080
 }
