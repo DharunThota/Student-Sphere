@@ -1,7 +1,7 @@
 const Events = [
     {
         id: 1,
-        name: "Tech",
+        name: "IIITDM Art Club Competition Samgatha",
         imgURL:"https://picsum.photos/220",
         club: "Mr. Tech",
         date: "23/3/24",
