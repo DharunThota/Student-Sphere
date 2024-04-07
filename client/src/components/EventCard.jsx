@@ -5,12 +5,12 @@ function EventCard(props) {
     <div className="ecard">
       <div>
         <img src={props.img} alt="avatar_img" />
-        <h1>{props.name}</h1>
+        <h5>{props.name}</h5>
       </div>
-      <div className="body">        
-        <p>{props.date}</p>
-        <p>{props.time}</p>
-        <p>{props.venue}</p>        
+      <hr />
+      <div className="body">     
+        <p>{props.date}, {props.time}</p>
+        <p>{props.venue}</p>    
       </div>
     </div>
   );
