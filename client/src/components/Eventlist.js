@@ -1,7 +1,11 @@
 const Events = [
     {
         id: 1,
+<<<<<<< HEAD
         name: "Trial loadout is not working",
+=======
+        name: "IIITDM Art Club Competition Samgatha",
+>>>>>>> 13d6c505742c92b5a8497174cb91734ae4a71080
         imgURL:"https://picsum.photos/220",
         club: "Mr. Tech",
         date: "2 April",
