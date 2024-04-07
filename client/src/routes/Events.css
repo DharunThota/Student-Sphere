@@ -24,15 +24,16 @@
     color: #000;
     font-family: 'Roboto', sans-serif;
     font-size: 24px;
-    font-weight: 500;
+    font-weight: 600;
     overflow-wrap: break-word;
     padding: 10px;
     position: relative;
-    max-height: 100px;
+    height: 70px;
+    overflow: hidden;
 }
 
 .ecard img {
-    border-radius:1px;  
+    border-radius:15px;  
     width: 300px;
     height: 250px;
     padding: 10px;
@@ -55,14 +56,36 @@
     margin: 0;   
 }
 
+.ecard .desc{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: -150%;
+    position: absolute;
+    background: #1f3d4738;
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    color: #fff;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: right 2s ease, background 2s ease;
+    overflow-y: auto;
+}
+
 .ecard .body break {
     height: 1.2rem;
     border-left: 1px solid #000;
 }
 
-.ecard info {
-    opacity : 0;
+.ecard:hover .desc {
+    right: 0;
+    background: #9ce4f3;
+    border-radius: 10px;
+    overflow: auto;
 }
+
 
 .ecard:hover {
     background-color: #9ce4f3;

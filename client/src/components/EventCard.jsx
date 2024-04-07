@@ -5,8 +5,8 @@ function EventCard(props) {
     <div className="ecard">
       <div>
         <img src={props.img} alt="avatar_img" />
-        <h1>{props.name}</h1>
       </div>
+      <h1>{props.name}</h1>
       <div className="body">   
         <p>{props.date}</p>  
         <break />
@@ -14,8 +14,8 @@ function EventCard(props) {
         <break />
         <p>{props.venue}</p>
       </div>
-      <div className="info">
-        
+      <div className="desc">
+        <p>{props.des}</p>
       </div>
     </div>
   );
