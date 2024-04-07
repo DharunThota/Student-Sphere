@@ -11,22 +11,23 @@ function Events(){
     //subheading  -- buttons right side
     //event cards
 
-        <div className="eventsPage">
+        <div className="eventCard">
         <Heading name="Events" />
         <SubHeading name="Upcoming Events" />
         <ButtonGroup/>
-
-            {Eventlist.map((event) => (
-                <EventCard
-                    key={event.id}
-                    name={event.name}
-                    img={event.imgURL}
-                    date={event.date}
-                    time={event.time}
-                    venue={event.venue}
-                    des={event.des}
-                />
-            ))}
+            <div className="container">
+                {Eventlist.map((event) => (
+                    <EventCard
+                        key={event.id}
+                        name={event.name}
+                        img={event.imgURL}
+                        date={event.date}
+                        time={event.time}
+                        venue={event.venue}
+                        des={event.des}
+                    />
+                ))}
+            </div>
         </div>
     );
 }
