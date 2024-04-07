@@ -9,8 +9,13 @@ function EventCard(props) {
       </div>
       <div className="body">        
         <p>{props.date}</p>
+        <break />
         <p>{props.time}</p>
+        <break />
         <p>{props.venue}</p>        
+      </div>
+      <div className="info">
+        <p>{props.des}</p>
       </div>
     </div>
   );

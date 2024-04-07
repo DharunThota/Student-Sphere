@@ -1,12 +1,13 @@
 const Events = [
     {
         id: 1,
-        name: "Tech",
+        name: "Trial loadout is not working",
         imgURL:"https://picsum.photos/220",
         club: "Mr. Tech",
-        date: "23/3/24",
-        time: "1700",
-        venue: "H05"
+        date: "2 April",
+        time: "5:00 pm",
+        venue: "H05",
+        des: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in velit ac odio  "
     },
     {
         id: 2,
@@ -15,7 +16,8 @@ const Events = [
         club: "Mr. Hehe",
         date: "23/4/24",
         time: "1900",
-        venue: "H15"
+        venue: "H15",
+        des: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in velit ac odio  "
     },
     {
         id: 3,
@@ -24,7 +26,8 @@ const Events = [
         club: "Mr. Tata",
         date: "23/15/24",
         time: "1000",
-        venue: "L205"
+        venue: "L205",
+        des: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in velit ac odio  "
     },
     {
         id: 4,
@@ -33,7 +36,8 @@ const Events = [
         club: "Mr. Chee",
         date: "230/03/24",
         time: "1430",
-        venue: "H02"
+        venue: "H02",
+        des: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in velit ac odio  "
     },
     {
         id: 5,
@@ -42,7 +46,8 @@ const Events = [
         club: "Mr. Aiyo",
         date: "23/3/24",
         time: "1700",
-        venue: "H05"
+        venue: "H05",
+        des: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in velit ac odio  "
     },
     
   ];

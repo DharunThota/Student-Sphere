@@ -14,6 +14,7 @@ function Events(){
                     date={event.date}
                     time={event.time}
                     venue={event.venue}
+                    des={event.des}
                 />
             ))}
         </div>
