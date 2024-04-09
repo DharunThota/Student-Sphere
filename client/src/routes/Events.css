@@ -16,6 +16,8 @@
     
     transition: background-color 2s ease; 
     overflow-y: auto;
+
+    transition: scale 1s;
 }
 
 .ecard h1 {
@@ -56,45 +58,25 @@
     margin: 0;   
 }
 
-.ecard .desc{
-    width: 100%;
-    height: 100%;
-    top: 0;
-    right: -150%;
-    position: absolute;
-    background: #1f3d4738;
-    backdrop-filter: blur(5px);
-    border-radius: 15px;
-    color: #fff;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    transition: right 2s ease, background 2s ease;
-    overflow-y: auto;
-}
-
 .ecard .body break {
     height: 1.2rem;
     border-left: 1px solid #000;
 }
 
-.ecard:hover .desc {
+/* .ecard:hover .desc {
     right: 0;
     background: #9ce4f3;
     border-radius: 10px;
     overflow: auto;
-}
+} */
 
 
 .ecard:hover {
-    background-color: #9ce4f3;
+    /* background-color: #9ce4f3;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    overflow-y: visible;
-}
-
-.ecard:hover img, .ecard:hover h1, .ecard:hover .body {
-    opacity: 0;
+    overflow-y: visible; */
+    scale : 1.05;
+    cursor: pointer;
 }
 
 

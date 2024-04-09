@@ -14,9 +14,6 @@ function EventCard(props) {
         <break />
         <p>{props.venue}</p>
       </div>
-      <div className="desc">
-        <p>{props.des}</p>
-      </div>
     </div>
   );
 }
