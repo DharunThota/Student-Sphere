@@ -7,10 +7,10 @@
 .ecard { 
     padding: 0px;
     width: 300px;
+    height: 400px;
     margin: 30px;
     background-color: #fff;
 
-    border-radius: 10px;
     box-shadow: 0px 0px 10px rgb(154, 196, 235);
     overflow: hidden; 
     
@@ -30,12 +30,11 @@
     overflow-wrap: break-word;
     padding: 10px;
     position: relative;
-    height: 70px;
+    height: 100px;
     overflow: hidden;
 }
 
 .ecard img {
-    border-radius:15px;  
     width: 300px;
     height: 250px;
     padding: 10px;
