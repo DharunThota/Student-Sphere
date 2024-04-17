@@ -1,5 +1,5 @@
 import React from "react";
-import './Events.css';
+import '../styles/Events.css';
 import EventCard from "../components/EventCard";
 import Eventlist from "../components/Eventlist";
 import ButtonGroup from "../components/ButtonGroup";
