@@ -11,7 +11,6 @@ function Events(){
 
         <div>
         <Heading name="Announcements" />
-        <ButtonGroup/>
             <div>
                 {Announcementlist.map((event) => (
                     <AnnouncementCard
