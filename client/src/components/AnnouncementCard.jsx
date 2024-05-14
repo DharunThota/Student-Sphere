@@ -21,6 +21,8 @@ function AnnouncementCard(props) {
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
+        size="lg"
+        centered
       >
         <Modal.Header closeButton>
           <Modal.Title>{props.heading}</Modal.Title>
