@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './routes/Home';
 import Events from './routes/Events';
 import Announcements from './routes/Announcements';
+import EventPage from './routes/EventPage';
 // Other imports
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Home/>} />
         <Route path='/Events' element={<Events/>} />
         <Route path='/Announcements' element={<Announcements/>} />
+        <Route path='/EventPage' element={<EventPage/>} />
       </Routes>
     </Router>
   );
