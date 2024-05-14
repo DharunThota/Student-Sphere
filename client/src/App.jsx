@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './routes/Home';
 import Events from './routes/Events';
+import Announcements from './routes/Announcements';
 // Other imports
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path='/events' element={<Events/>} />
+        <Route path='/Events' element={<Events/>} />
+        <Route path='/Announcements' element={<Announcements/>} />
       </Routes>
     </Router>
   );
