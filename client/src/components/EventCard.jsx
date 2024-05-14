@@ -2,14 +2,16 @@ import React from "react";
 
 function EventCard(props) {
   return (
-    <div >
-      <div >
-        <h2>{props.name}</h2>
+    <div className="ecard">
+      <div>
         <img src={props.img} alt="avatar_img" />
       </div>
-      <div>
-        <p>{props.date}</p>
+      <h1>{props.name}</h1>
+      <div className="body">   
+        <p>{props.date}</p>  
+        <break />
         <p>{props.time}</p>
+        <break />
         <p>{props.venue}</p>
       </div>
     </div>

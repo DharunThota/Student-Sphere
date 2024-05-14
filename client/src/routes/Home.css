@@ -9,7 +9,7 @@
     z-index:1;
     position:fixed;
     height: 60px;
-    width:700px;
+    width:100vw;
     padding:10px;
     background-color:#5DADE2;
     display: flex;
