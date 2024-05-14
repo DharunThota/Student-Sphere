@@ -1,0 +1,17 @@
+.cont{
+    max-height: 100vh;
+    height:77vh;
+    width:100vw;
+    margin-top:160px;
+    z-index:0;
+    display: flex;
+    flex-direction:column;
+}
+.image{
+    background-size: cover;
+    background-position: center;
+    height:77vh;
+}
+.i{
+    height:77vh;
+}
