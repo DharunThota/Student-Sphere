@@ -21,7 +21,7 @@
     transition: scale 1s;
 }
 
-.acard h {
+.acard h5 {
     font-size: 1.1rem;
     margin: 0;
 }
@@ -35,3 +35,5 @@
     scale : 1.05;
     cursor: pointer;
 }
+
+
