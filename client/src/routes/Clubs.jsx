@@ -5,6 +5,7 @@ import ClubCard from "../components/ClubCard";
 import Clublist from "../components/Clublist"
 import Heading from '../components/Heading'
 import SubHeading from "../components/SubHeading";
+import Navbar from "../components/Navbar";
 
 function Clubs(){
     const [tech, setTech] = useState([]);
@@ -23,29 +24,33 @@ function Clubs(){
     }, [])
 
     return(
-        <div className="clubCard">
-        <Heading name="Clubs" />
-        <SubHeading name="Technical Clubs" />
-            <div className="container">
-                {tech.map((club) => (
-                    <ClubCard
-                        key={club.club_id}
-                        id={club.club_id}
-                        club={club.name}
-                    />
-                ))}
+        <>
+            <Navbar />
+            <div className="clubCard">
+                <Heading name="Clubs" />
+                <SubHeading name="Technical Clubs" />
+                <div className="container">
+                    {tech.map((club) => (
+                        <ClubCard
+                            key={club.club_id}
+                            id={club.club_id}
+                            club={club.name}
+                        />
+                    ))}
+                </div>
+                <SubHeading name="Cultural Clubs" />
+                <div className="container">
+                    {cult.map((club) => (
+                        <ClubCard
+                            key={club.club_id}
+                            id={club.club_id}
+                            club={club.name}
+                        />
+                    ))}
+                </div>
             </div>
-        <SubHeading name="Cultural Clubs" />
-            <div className="container">
-                {cult.map((club) => (
-                    <ClubCard
-                        key={club.club_id}
-                        id={club.club_id}
-                        club={club.name}
-                    />
-                ))}
-            </div>
-        </div>
+        </>
+        
     );
 }
 
