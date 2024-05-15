@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import '../styles/Clubs.css';
 import ClubCard from "../components/ClubCard";
-import Clublist from "../components/Clublist"
 import Heading from '../components/Heading'
 import SubHeading from "../components/SubHeading";
 import Navbar from "../components/Navbar";

@@ -26,7 +26,8 @@ app.post("/login", async(req, res) => {
         const password = result.rows[0].password
         if(password === req.body.password){
             //res.json(result.rows[0])
-            const student = await db.query("select fname, lname, student_id, club_id from student s join member_of m on m.member_id = s.student_id where student_id = $1", [req.body.username]);
+            const student = await db.query("select fname, lname, student_id, c.club_id as club_id, name from student s join member_of m on m.member_id = s.student_id join club c on c.club_id=m.club_id where student_id = $1", [req.body.username]);
+            console.log(student.rows[0]);
             res.json(student.rows[0]);
         } else {
             console.log("wrong");
@@ -60,7 +61,7 @@ app.get("/clubs/:type", async(req, res) => {
 
 app.get("/api/v1/clubs/:id", async(req, res) => {
     try {
-        const result = await db.query("select name, s.fname as lead_fname, s.lname as lead_lname, p.fname as pic_fname, p.lname as pic_lname, room_no, description from club c join pic p on p.pic_id=c.pic join student s on s.student_id=c.lead where c.club_id=$1", [req.params.id]);
+        const result = await db.query("select name, s.fname as lead_fname, s.lname as lead_lname, p.fname as pic_fname, p.lname as pic_lname, room_no, description, type from club c join pic p on p.pic_id=c.pic join student s on s.student_id=c.lead where c.club_id=$1", [req.params.id]);
         //console.log(result.rows);
         res.json(result.rows)
     } catch (error) {
@@ -71,8 +72,8 @@ app.get("/api/v1/clubs/:id", async(req, res) => {
 //update club info
 app.put("/clubs/:id", async (req, res) => {
     try {
-        const result = db.query("update club set name=$1, type=$2, description=$3, lead=$4, pic=$5, room_no=$6 where club_id=$7 returning *",
-            [req.body.name, req.body.type, req.body.description, req.body.lead, req.body.pic, req.body.room_no, req.params.id]
+        const result = db.query("update club set name=$1, type=$2, description=$3, room_no=$4 where club_id=$5 returning *",
+            [req.body.name, req.body.type, req.body.desc, req.body.room_no, req.params.id]
         );
         res.status(200).json(result.rows);
     } catch (error) {

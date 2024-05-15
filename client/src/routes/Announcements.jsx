@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AnnouncementCard from "../components/AnnouncementCard";
-import Announcementlist from "../components/Announcementlist";
-import ButtonGroup from "../components/ButtonGroup";
 import Heading from '../components/Heading'
 import Navbar from "../components/Navbar";
 

@@ -28,7 +28,7 @@ function Login() {
             setPassword("");
             setLoggedIn(true);
             setCurrentUser(response.data);
-            navigate("/");
+            navigate("/dashboard");
         } catch (error) {
             console.log(error)
         }

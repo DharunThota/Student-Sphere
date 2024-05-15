@@ -6,9 +6,10 @@ import EventPage from './routes/EventPage';
 import Announcements from './routes/Announcements';
 import ClubPage from './routes/ClubPage';
 import Clubs from './routes/Clubs';
-import { UserContextProvider } from './context/UserContext';
+import DashBoard from "./routes/Dashboard";
 import Login from './routes/Login';
-// Other imports
+import { UserContextProvider } from './context/UserContext';
+import EditClub from './routes/EditClub';
 
 function App() {
   return (
@@ -21,7 +22,9 @@ function App() {
           <Route path='/announcements' Component={Announcements} />
           <Route path='/login' Component={Login} />
           <Route path='/clubs' Component={Clubs} />
-          <Route path='/clubs/:id' element={<ClubPage/>} />
+          <Route path='/clubs/:id' Component={ClubPage} />
+          <Route path='/dashboard' Component={DashBoard} />
+          <Route path='/edit' Component={EditClub} />
         </Routes>
       </Router>
     </UserContextProvider>

@@ -1,0 +1,14 @@
+.main{
+    padding: 0 20%;
+}
+
+.top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top button{
+    float: right;
+    height: 50px;
+}
