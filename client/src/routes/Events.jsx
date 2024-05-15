@@ -7,10 +7,7 @@ import Heading from '../components/Heading'
 import SubHeading from "../components/SubHeading";
 
 function Events(){
-    return(//heading
-    //subheading  -- buttons right side
-    //event cards
-
+    return(
         <div className="eventCard">
         <Heading name="Events" />
         <SubHeading name="Upcoming Events" />

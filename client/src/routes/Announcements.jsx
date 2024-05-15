@@ -5,10 +5,7 @@ import ButtonGroup from "../components/ButtonGroup";
 import Heading from '../components/Heading'
 
 function Events(){
-    return(//heading
-    //subheading  -- buttons right side
-    //event cards
-
+    return(
         <div>
         <Heading name="Announcements" />
         <ButtonGroup/>
