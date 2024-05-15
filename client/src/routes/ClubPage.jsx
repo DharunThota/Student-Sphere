@@ -37,7 +37,7 @@ function ClubPage() {
             <img src={"https://picsum.photos/220"} alt="club_img" />
                     <p>Lead: {club.lead_fname} {club.lead_lname}</p>
                     <p>PIC: {club.pic_fname} {club.pic_lname}</p>
-                    <p>Room No.:{club.room_no}</p>
+                    <p>Room No:{club.room_no}</p>
         </div>
          
         <div className="description">
