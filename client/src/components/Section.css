@@ -1,0 +1,81 @@
+.section{
+    height:77vh;
+}
+.head{
+    color:black;
+    font-size:35px;
+    font-family:monospace;
+    font-weight:bold;
+    padding-top:20px;
+    padding-left:50px;
+    padding-bottom:0px;
+}
+.hori{
+    border:0;
+    border-top:5px solid;
+    border-color:black;
+    width:90vw;
+    margin-left:25px;
+    color:black;
+    margin-top:0px;
+}
+.List{
+    display:flex;
+    flex-direction: row;
+    padding-left:30px;
+}
+.Card{
+    margin:10px;
+    margin-right:40px;
+    border-radius:15px;
+    background-color:#D6D8DC;
+    height:55vh;
+    width:27vw;
+    transition:background-color 0.3s ease-in-out,width 0.3s ease-in-out,height 0.3s ease-in-out;
+    padding:20px;
+    text-align:center;
+}
+.Card:hover{
+    background-color:#A1A2A4;
+    width:29vw;
+    height:57vh;
+}
+.image{
+    height:30vh;
+    width:22vw;
+    margin-bottom:14px;
+}
+.cardHead{
+    font-size:20px;
+    font-family:monospace;
+    font-weight:bold;
+    color:#0B0C0E;
+}
+.cardDesc{
+    font-size:15px;
+    font-family:Roboto;
+    overflow: scroll;
+}
+.headdiv{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    padding-right:20px;
+}
+.sech{
+    font-size:18px;
+    font-weight:bold;
+    font-style:underline;  
+    padding-top:30px;
+    padding-right:120px;
+    padding-bottom:0px;
+    transition:color 0.3s ease-in-out !important;
+}
+.sech:after{
+    content:'>';
+    color:#05235F;
+}
+.sech:hover{
+    cursor:pointer;
+    color:#5E8FEE !important;
+}
