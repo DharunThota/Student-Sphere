@@ -8,6 +8,9 @@ import SubHeading from "../components/SubHeading";
 import Navbar from "../components/Navbar";
 
 function Events(){
+    
+
+
     return(//heading
     //subheading  -- buttons right side
     //event cards
@@ -16,10 +19,11 @@ function Events(){
             <div className="eventCard">
             <Heading name="Events" />
             <SubHeading name="Upcoming Events" />
-            <ButtonGroup/>
+            <ButtonGroup />
                 <div className="container">
                     {Eventlist.map((event) => (
                         <EventCard
+                            id = "1"
                             key={event.id}
                             name={event.name}
                             img={event.imgURL}
