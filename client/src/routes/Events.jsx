@@ -24,9 +24,7 @@ function Events(){
     }, []);
 
 
-    return(//heading
-    //subheading  -- buttons right side
-    //event cards
+    return(
         <>
             {/* <Navbar /> */}
             <div className="eventCard">
@@ -46,6 +44,7 @@ function Events(){
                         />
                     ))}
                 </div>
+
             </div>
         </>
     );

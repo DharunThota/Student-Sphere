@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import SubHeading from "../components/SubHeading";
-import './EventPage.css';
+import '../styles/EventPage.css';
 import { useParams } from "react-router-dom";
 
 function EventPage() {
@@ -30,7 +30,6 @@ function EventPage() {
     }, [])
 
     return (
-    
         <div className="eventPage">
         <SubHeading name={event.title} />
 
@@ -47,8 +46,6 @@ function EventPage() {
         <div className="eventDescription">
             <p>{event.about}</p>
         </div>
-    </div>
-
     );
 }
 
