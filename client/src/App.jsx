@@ -5,24 +5,20 @@ import Events from './routes/Events';
 import Announcements from './routes/Announcements';
 import ClubPage from './routes/ClubPage';
 import Clubs from './routes/Clubs';
-import { UserContextProvider } from './context/UserContext';
-import Login from './routes/Login';
+
 // Other imports
 
 function App() {
   return (
-    <UserContextProvider>
-      <Router>
-        <Routes>
-          <Route path="/" Component={Home} />
-          <Route path='/Events' Component={Events} />
-          <Route path='/Announcements' Component={Announcements} />
-           <Route path='/Clubs' element={<Clubs/>} />
-           <Route path='/clubs/:id' element={<ClubPage/>} />
-          <Route path='/login' Component={Login} />
-        </Routes>
-      </Router>
-    </UserContextProvider>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path='/events' element={<Events/>} />
+        <Route path='/announcements' element={<Announcements/>} />
+        <Route path='/clubs/:id' element={<ClubPage/>} />
+        <Route path='/clubs' element={<Clubs/>} />
+      </Routes>
+    </Router>
   );
 }
 
