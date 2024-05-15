@@ -2,13 +2,14 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import pg from "pg";
+import "dotenv/config";
 
 const db = new pg.Client({
-    user: "postgres",
-    host: "localhost",
-    database: "student_sphere",
-    password: "Dharun@4113",
-    port: 5432
+    user: process.env.USER,
+    host: process.env.HOST,
+    database: process.env.DATABASE,
+    password: process.env.PASSWORD,
+    port: process.env.PORT
 });
 
 db.connect();
