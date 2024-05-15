@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import '../styles/Events.css';
 import EventCard from "../components/EventCard";
 import Eventlist from "../components/Eventlist";
@@ -13,20 +13,18 @@ function Events(){
 
     useEffect(() => {
         async function fetchData() {
-            try {
-                const response = await axios.get("http://localhost:3000/api/v1/events/Upcoming");
-                setEvents(response.data);
-            } catch (error) {
-                console.error("Error fetching data: ", error);
-            }
+            // try {
+            //     const response = await axios.get("http://localhost:3000/api/v1/events/Upcoming");
+            //     setEvents(response.data);
+            // } catch (error) {
+            //     console.error("Error fetching data: ", error);
+            // }
         }
         fetchData();
     }, []);
 
 
-    return(//heading
-    //subheading  -- buttons right side
-    //event cards
+    return(
         <>
             {/* <Navbar /> */}
             <div className="eventCard">

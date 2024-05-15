@@ -1,6 +1,6 @@
 import React from "react";
 import SubHeading from "../components/SubHeading";
-import './EventPage.css';
+import '../styles/EventPage.css';
 
 function EventPage(props) {
     return (

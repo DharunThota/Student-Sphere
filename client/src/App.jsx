@@ -4,6 +4,7 @@ import Home from './routes/Home';
 import Events from './routes/Events';
 import EventPage from './routes/EventPage';
 import Announcements from './routes/Announcements';
+import ClubPage from './routes/ClubPage';
 import Clubs from './routes/Clubs';
 import { UserContextProvider } from './context/UserContext';
 import Login from './routes/Login';
@@ -20,6 +21,7 @@ function App() {
           <Route path='/announcements' Component={Announcements} />
           <Route path='/login' Component={Login} />
           <Route path='/clubs' Component={Clubs} />
+          <Route path='/clubs/:id' element={<ClubPage/>} />
         </Routes>
       </Router>
     </UserContextProvider>
