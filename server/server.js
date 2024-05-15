@@ -20,6 +20,22 @@ const port = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
+app.post("/login", async(req, res) => {
+    try {
+        const result = await db.query("select * from login where username=$1", [req.body.username])
+        const password = result.rows[0].password
+        if(password === req.body.password){
+            //res.json(result.rows[0])
+            const student = await db.query("select fname, lname, student_id, club_id from student s join member_of m on m.member_id = s.student_id where student_id = $1", [req.body.username]);
+            res.json(student.rows[0]);
+        } else {
+            console.log("wrong");
+        }
+    } catch (error) {
+        console.log(error)
+    }
+})
+
 /*CLUB */
 //get all clubs
 app.get("/clubs", async(req, res) => {

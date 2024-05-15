@@ -1,13 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import college from "./college.jpeg";
 import "./Navbar.css"
+import { UserContext } from "../context/UserContext";
 
 // let heading = "";
 // let length = 0;
 // const h = ['S', 't', 'u', 'd', 'e', 'n', 't', ' ', 'S', 'p', 'h', 'e', 'r', 'e'];
 
 function Navbar() {
+    const {setCurrentUser, isLoggedIn, setLoggedIn} = useContext(UserContext)
 	let navigate = useNavigate();
 
     // useEffect(() => {
@@ -30,26 +32,14 @@ function Navbar() {
 		navigate("/login");
 	}
 
+    function handleLogout(){
+        setLoggedIn(false)
+        setCurrentUser({})
+        navigate("/")
+    }
+
     return (
         <>
-            {/* <nav class="navbar navbar-expand-lg sticky top" data-bs-theme="dark">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Navbar</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-lg-center" id="navbarNavAltMarkup">
-                        <div class="navbar-nav">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                            <a class="nav-link" >Clubs</a>
-                            <a class="nav-link" >Events</a>
-                            <a class="nav-link" >Announcements</a>
-                        </div>
-                    </div>
-                    <button className="login-button btn btn-primary" type="button" onClick={handleLogin} style={{float: "right"}}>Login</button>
-                </div>
-            </nav> */}
-
             <nav className="navbar sticky-top navbar-expand-lg border-bottom border-body" data-bs-theme="dark">
             <div className="container">
                 <img src="./college.jpeg" />
@@ -66,10 +56,11 @@ function Navbar() {
                             <li className="nav-item" onClick={() => navigate("/clubs")}><a className="nav-link active" aria-current="page">Clubs</a></li>
                             <li className="nav-item" onClick={() => navigate("/events")}><a className="nav-link active" aria-current="page">Events</a></li>
                             <li className="nav-item" onClick={() => navigate("/announcements")}><a className="nav-link active" aria-current="page">Announcements</a></li>
+                            {isLoggedIn && <li className="nav-item" onClick={() => navigate("/dashboard")}><a className="nav-link active" aria-current="page">Dashboard</a></li>}
                         </ul>
                     </div>
                 <div className="d-lg-flex col-lg-3 justify-content-lg-end" style={{float:"right"}}>
-                    <button className="btn btn-success" onClick={handleLogin}>Log In</button>
+                    {!isLoggedIn ? <button className="btn btn-success" onClick={handleLogin}>Log In</button> : <button className="btn btn-outline-danger" onClick={handleLogout}>Log Out</button>}
                 </div>
             </div>
         </nav>
