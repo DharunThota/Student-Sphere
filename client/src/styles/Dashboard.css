@@ -12,3 +12,18 @@
     float: right;
     height: 50px;
 }
+
+.options{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.option{
+    background-color: grey;
+    height: 80px;
+    font-size: 32px;
+    padding: 10px;
+    border-radius: 3%;
+}

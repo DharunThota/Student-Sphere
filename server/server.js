@@ -81,15 +81,19 @@ app.put("/clubs/:id", async (req, res) => {
     }
 });
 
-//add members
-app.post("/clubs/:id/members", async (req, res) => {
+//get members
+app.get("/clubs/:id/members", async(req, res) => {
     try {
-        const result = db.query("select * from club");
-        res.status(200).json(result.rows);
-    } catch (error) { 
-        console.log(error);
+        //console.log(req.params.id);
+        const result = await db.query("select student_id, fname, lname, age, position from student s join member_of m on m.member_id=s.student_id where m.club_id=$1", [req.params.id])
+        //console.log(result.rows);
+        res.json(result.rows);
+    } catch (error) {
+        console.log(error)
     }
-});
+})
+
+//add members
 
 //remove members
 
