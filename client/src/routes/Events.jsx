@@ -12,7 +12,7 @@ function Events(){
     //subheading  -- buttons right side
     //event cards
         <>
-            <Navbar />
+            {/* <Navbar /> */}
             <div className="eventCard">
             <Heading name="Events" />
             <SubHeading name="Upcoming Events" />

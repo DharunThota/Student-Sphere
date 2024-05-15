@@ -1,0 +1,52 @@
+.container {
+    display : flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.ccard { 
+    padding: 0px;
+    width: 350px;
+    height: 400px;
+    margin: 25px;
+    background-color: #fff;
+
+    box-shadow: #000 0px 4px 8px 0px;
+    overflow: hidden; 
+
+    transition: scale 1s;
+}
+
+.ccard h1 {
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    padding: 10px;
+    height: 20%;
+    text-align: center;
+}
+
+
+.ccard img {
+    width: 350px;
+    height: 300px;
+    padding: 10px;
+}
+
+.ccard .body break {
+    height: 1.2rem;
+    border-left: 1px solid #000;
+}
+
+.ccard:hover {
+    scale : 1.05;
+    cursor: pointer;
+}
+
+
+
