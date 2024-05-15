@@ -5,14 +5,7 @@ import Navbar from "../components/Navbar";
 function Home() {
     return (
         <div className="homePage">
-            <div style={{zIndex:'1'}}>
-                <Navbar />
-            </div>
-            <div style={{ width:'100vw'}} className="container">
-                <span className="element text-center">Events</span>
-                <span className="element text-center">Announcements</span>
-                <span className="element text-center">Clubs</span>
-            </div>
+            {/* <Navbar /> */}
             <div id="carouselExampleCaptions" class="cont carousel slide carousel-fade" data-bs-ride="carousel">
               <div class="carousel-indicators d-none">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
