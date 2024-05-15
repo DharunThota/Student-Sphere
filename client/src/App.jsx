@@ -4,6 +4,7 @@ import Home from './routes/Home';
 import Events from './routes/Events';
 import EventPage from './routes/EventPage';
 import Announcements from './routes/Announcements';
+import Clubs from './routes/Clubs';
 import { UserContextProvider } from './context/UserContext';
 import Login from './routes/Login';
 // Other imports
@@ -18,7 +19,7 @@ function App() {
           <Route path="/events/:id" Component={EventPage} />
           <Route path='/announcements' Component={Announcements} />
           <Route path='/login' Component={Login} />
-          {/*<Route path='/clubs' Component={Clubs} /> */}
+          <Route path='/clubs' Component={Clubs} />
         </Routes>
       </Router>
     </UserContextProvider>
