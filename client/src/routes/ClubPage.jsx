@@ -3,6 +3,7 @@ import axios from "axios";
 import Heading from "../components/Heading";
 import '../styles/ClubPage.css';
 import { useParams } from "react-router-dom"
+import Navbar from "../components/Navbar";
 
 function ClubPage() {
     const {id} = useParams();
@@ -31,19 +32,21 @@ function ClubPage() {
     }, [])
 
     return (    
-        <div className="clubPage">
-        <Heading name={club.name} />
-        <div className="info">
-            <img src={"https://picsum.photos/220"} alt="club_img" />
+        <>
+            <Navbar />
+            <div className="clubPage">
+                <Heading name={club.name} />
+                <div className="info">
+                    <img src={"https://picsum.photos/220"} alt="club_img" />
                     <p>Lead: {club.lead_fname} {club.lead_lname}</p>
                     <p>PIC: {club.pic_fname} {club.pic_lname}</p>
                     <p>Room No.:{club.room_no}</p>
-        </div>
-         
-        <div className="description">
-            <p> {club.description} </p>
-        </div>
-    </div>
+                </div>
+                <div className="description">
+                    <p> {club.description} </p>
+                </div>
+            </div>
+        </>
 
     );
 }

@@ -25,12 +25,12 @@ function Events(){
 
     return(
         <>
-            {/* <Navbar /> */}
+            <Navbar />
             <div className="eventCard">
             <Heading name="Events" />
             <SubHeading name="Upcoming Events" />
             <ButtonGroup />
-                <div className="container">
+                <div className="container-fluid">
                     {events.map((event) => (
                         <EventCard
                             id = {event.event_id}

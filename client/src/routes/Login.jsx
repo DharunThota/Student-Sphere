@@ -24,7 +24,7 @@ function Login() {
 
     return (
         <>
-            {/* <Navbar/> */}
+            <Navbar/>
             <div class="container col-xl-10 col-xxl-8 px-4 py-5">
                     <div class="col-md-10 mx-auto col-lg-5">
                         <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" onSubmit={handleSubmit}>

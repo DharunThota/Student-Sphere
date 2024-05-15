@@ -52,27 +52,24 @@ function Navbar() {
 
             <nav className="navbar sticky-top navbar-expand-lg border-bottom border-body" data-bs-theme="dark">
             <div className="container">
-                <div className="container-fluid">
-                    <img src="./college.jpeg" />
+                <img src="./college.jpeg" />
+                    
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                     </button>
 
-                    <div className="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
-
+                    <div className="links">
                         <ul className="navbar-nav col-lg-6 justify-content-lg-center">
-                            <li className="nav-item">
+                            <li className="nav-item" onClick={() => navigate("/")}>
                             <a className="nav-link active" aria-current="page">HOME</a>
                             </li>
-                            <li><a className="nav-link active" aria-current="page">Clubs</a></li>
-                            <li><a className="nav-link active" aria-current="page">Events</a></li>
-                            <li><a className="nav-link active" aria-current="page">Announcements</a></li>
+                            <li className="nav-item" onClick={() => navigate("/clubs")}><a className="nav-link active" aria-current="page">Clubs</a></li>
+                            <li className="nav-item" onClick={() => navigate("/events")}><a className="nav-link active" aria-current="page">Events</a></li>
+                            <li className="nav-item" onClick={() => navigate("/announcements")}><a className="nav-link active" aria-current="page">Announcements</a></li>
                         </ul>
-
-                        <div className="d-lg-flex col-lg-3 justify-content-lg-end">
-                            <button className="btn btn-outline-danger">Log In</button>
-                        </div>
                     </div>
+                <div className="d-lg-flex col-lg-3 justify-content-lg-end" style={{float:"right"}}>
+                    <button className="btn btn-success" onClick={handleLogin}>Log In</button>
                 </div>
             </div>
         </nav>

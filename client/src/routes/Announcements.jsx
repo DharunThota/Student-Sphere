@@ -4,6 +4,7 @@ import AnnouncementCard from "../components/AnnouncementCard";
 import Announcementlist from "../components/Announcementlist";
 import ButtonGroup from "../components/ButtonGroup";
 import Heading from '../components/Heading'
+import Navbar from "../components/Navbar";
 
 function Events(){
     const [announcements, setAnnouncements] = useState([]);
@@ -26,7 +27,8 @@ function Events(){
     //event cards
 
         <div>
-        <Heading name="Announcements" />
+            <Navbar />
+            <Heading name="Announcements" />
             <div>
                 {announcements.map((ann) => (
                     <AnnouncementCard
