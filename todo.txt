@@ -1,18 +1,10 @@
 DHARUN
-add navigation
-login functionality
-connect frontend and backend
-populate database
+club dashboard
 
 PRANAAV AND ROHAN
-club page
-individual club page
+fix frontend issues (aesthetics/design)
 
 PRATYEK
 finish homepage
-
-
-club dashboard
-
 
 clear up messed up stuff

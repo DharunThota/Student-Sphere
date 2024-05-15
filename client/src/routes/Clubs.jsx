@@ -26,29 +26,32 @@ function Clubs(){
     return(
         <>
             <Navbar />
-            <div className="clubCard">
-                <Heading name="Clubs" />
-                <SubHeading name="Technical Clubs" />
-                <div className="container">
-                    {tech.map((club) => (
-                        <ClubCard
-                            key={club.club_id}
-                            id={club.club_id}
-                            club={club.name}
-                        />
-                    ))}
-                </div>
-                <SubHeading name="Cultural Clubs" />
-                <div className="container">
-                    {cult.map((club) => (
-                        <ClubCard
-                            key={club.club_id}
-                            id={club.club_id}
-                            club={club.name}
-                        />
-                    ))}
+            <div className="club-container">
+                <div className="clubCard">
+                    <Heading name="Clubs" />
+                    <SubHeading name="Technical Clubs" />
+                    <div className="container">
+                        {tech.map((club) => (
+                            <ClubCard
+                                key={club.club_id}
+                                id={club.club_id}
+                                club={club.name}
+                            />
+                        ))}
+                    </div>
+                    <SubHeading name="Cultural Clubs" />
+                    <div className="container">
+                        {cult.map((club) => (
+                            <ClubCard
+                                key={club.club_id}
+                                id={club.club_id}
+                                club={club.name}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
+            
         </>
         
     );

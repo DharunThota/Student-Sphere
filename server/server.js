@@ -61,7 +61,7 @@ app.get("/clubs/:type", async(req, res) => {
 app.get("/api/v1/clubs/:id", async(req, res) => {
     try {
         const result = await db.query("select name, s.fname as lead_fname, s.lname as lead_lname, p.fname as pic_fname, p.lname as pic_lname, room_no, description from club c join pic p on p.pic_id=c.pic join student s on s.student_id=c.lead where c.club_id=$1", [req.params.id]);
-        console.log(result.rows);
+        //console.log(result.rows);
         res.json(result.rows)
     } catch (error) {
         console.log(error);
@@ -101,7 +101,7 @@ app.post("/clubs/:id/members", async (req, res) => {
 app.get("/announcements", async (req, res) => {
     try {
         const result = await db.query("select id, name, about from announcement a join club c on a.club_id=c.club_id");
-        console.log(result.rows);
+        //console.log(result.rows);
         res.status(200).json(result.rows);
     } catch (error) {
         console.log(error);
@@ -160,7 +160,7 @@ app.get("/events/:status", async (req, res) => {
 app.get("/api/v1/events/:id", async(req, res) => {
     try {
         const result = await db.query("select name, date, time, venue, title, about from event e join club c on e.club_id=c.club_id where event_id = $1", [req.params.id]);
-        console.log(result.rows);
+        //console.log(result.rows);
         res.json(result.rows);
     } catch (error) {
         console.log(error)
