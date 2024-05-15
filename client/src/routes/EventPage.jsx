@@ -31,20 +31,17 @@ function EventPage() {
 
     return (
         <div className="eventPage">
-        <SubHeading name={event.title} />
-
-        <div className="byWho"> 
+            <SubHeading name={event.title} />
+            <div className="byWho"> 
                 <p>{event.name}</p>
-        </div>
-        
-        <img src="https://picsum.photos/220" alt="event_img" />
-        
-        <div className="eventDetails">
-            <p>{event.date} | {event.time} | {event.venue}</p>
-        </div>
-
-        <div className="eventDescription">
-            <p>{event.about}</p>
+            </div>
+            <img src="https://picsum.photos/220" alt="event_img" />
+            <div className="eventDetails">
+                <p>{event.date} | {event.time} | {event.venue}</p>
+            </div>
+            <div className="eventDescription">
+                <p>{event.about}</p>
+            </div>
         </div>
     );
 }
