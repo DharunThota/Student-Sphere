@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 export const UserContext = React.createContext();
-export const UserUpdateContext = React.createContext();
 
 export function UserContextProvider({children}){
     const [currentUser, setCurrentUser] = useState({

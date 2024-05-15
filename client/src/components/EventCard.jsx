@@ -1,8 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function EventCard(props) {
+  let navigate = useNavigate();
+
+    function handleCLick(event){
+        navigate(`/events/${props.id}`);
+    }
+
   return (
-    <div className="ecard">
+    <div className="ecard" onClick={handleCLick}>
       <div>
         <img src={props.img} alt="avatar_img" />
       </div>
