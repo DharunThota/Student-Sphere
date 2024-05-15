@@ -21,34 +21,35 @@ app.use(bodyParser.json());
 
 /*CLUB */
 //get all clubs
-app.get("/clubs", async (req, res) => {
+app.get("/clubs", async(req, res) => {
     try {
-        const result = db.query("select * from club");
-        res.status(200).json(result.rows);
+        const result = await db.query("SELECT * FROM club");
+        //console.log(result.rows);
+        res.json(result.rows)
     } catch (error) {
         console.log(error);
     }
-});
+})
 
-//get technical/cultural clubs
-app.get("/clubs/:type", async (req, res) => {
+app.get("/clubs/:type", async(req, res) => {
     try {
-        const result = db.query("select * from club where type=$1", [req.params.type]);
-        res.status(200).json(result.rows);
+        const result = await db.query("SELECT * FROM club WHERE type=$1", [req.params.type]);
+        //console.log(result.rows);
+        res.json(result.rows)
     } catch (error) {
         console.log(error);
     }
-});
+})
 
-//get club info
-app.get("/clubs/:id", async (req, res) => {
+app.get("/api/v1/clubs/:id", async(req, res) => {
     try {
-        const result = db.query("select * from club where club_id=$1", [req,params.id]);
-        res.status(200).json(result.rows);
+        const result = await db.query("select name, s.fname as lead_fname, s.lname as lead_lname, p.fname as pic_fname, p.lname as pic_lname, room_no, description from club c join pic p on p.pic_id=c.pic join student s on s.student_id=c.lead where c.club_id=$1", [req.params.id]);
+        console.log(result.rows);
+        res.json(result.rows)
     } catch (error) {
         console.log(error);
     }
-});
+})
 
 //update club info
 app.put("/clubs/:id", async (req, res) => {

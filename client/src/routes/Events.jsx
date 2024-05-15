@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import '../styles/Events.css';
 import EventCard from "../components/EventCard";
-import Eventlist from "../components/Eventlist";
 import ButtonGroup from "../components/ButtonGroup";
 import Heading from '../components/Heading'
 import SubHeading from "../components/SubHeading";
