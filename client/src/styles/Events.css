@@ -12,7 +12,7 @@
     margin: 25px;
     background-color: #fff;
 
-    box-shadow: 0px 0px 10px rgb(154, 196, 235);
+    box-shadow: #000 0px 4px 8px 0px;
     overflow: hidden; 
 
     transition: scale 1s;
@@ -60,18 +60,7 @@
     border-left: 1px solid #000;
 }
 
-/* .ecard:hover .desc {
-    right: 0;
-    background: #9ce4f3;
-    border-radius: 10px;
-    overflow: auto;
-} */
-
-
 .ecard:hover {
-    /* background-color: #9ce4f3;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    overflow-y: visible; */
     scale : 1.05;
     cursor: pointer;
 }
