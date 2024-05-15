@@ -22,9 +22,7 @@ function Events(){
         fetchData();
     }, [])
 
-    return(//heading
-    //subheading  -- buttons right side
-    //event cards
+    return(
 
         <div>
             <Navbar />
