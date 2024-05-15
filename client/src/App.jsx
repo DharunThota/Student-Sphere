@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './routes/Home';
 import Events from './routes/Events';
 import Announcements from './routes/Announcements';
+import ClubPage from './routes/ClubPage';
 import Clubs from './routes/Clubs';
+
 // Other imports
 
 function App() {
@@ -11,9 +13,10 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path='/Events' element={<Events/>} />
-        <Route path='/Announcements' element={<Announcements/>} />
-        <Route path='/Clubs' element={<Clubs/>} />
+        <Route path='/events' element={<Events/>} />
+        <Route path='/announcements' element={<Announcements/>} />
+        <Route path='/clubs/:id' element={<ClubPage/>} />
+        <Route path='/clubs' element={<Clubs/>} />
       </Routes>
     </Router>
   );
