@@ -1,30 +1,51 @@
 import React from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import SubHeading from "../components/SubHeading";
 import './EventPage.css';
+import { useParams } from "react-router-dom";
 
-function EventPage(props) {
+function EventPage() {
+    const {id} = useParams();
+    const [event, setEvent] = useState({
+        name: "",
+        date: "",
+        time: "",
+        venue: "",
+        about: "",
+        title: ""
+    });
+
+    useEffect(() => {
+        async function fetchData(){
+            try {
+                const response = await axios.get(`http://localhost:3000/api/v1/events/${id}`);
+                console.log(response.data);
+                setEvent(response.data[0]);
+            } catch (error) {
+                console.error("Error fetching data: ", error);
+            }
+        }
+        fetchData();
+    }, [])
+
     return (
     
         <div className="eventPage">
-        <SubHeading name="Title: Hosting another LeetCodesque Competition" />
+        <SubHeading name={event.title} />
 
         <div className="byWho"> 
-                <p>by Nerd #102{props.op} | CS Club{props.clubName}</p>
+                <p>{event.name}</p>
         </div>
         
-        <img src={props.img} alt="event_img" />
+        <img src="https://picsum.photos/220" alt="event_img" />
         
         <div className="eventDetails">
-            <p>{props.date} Day 3 Vashihst | {props.time} Lunch Break so no one comes | {props.venue}H05 without AC</p>
+            <p>{event.date} | {event.time} | {event.venue}</p>
         </div>
 
         <div className="eventDescription">
-            <p>{props.description}
-            lorum shitum epusm spstein list 
-            iewnfineof 
-            qwdiqnidnqid qwdjndnqd
-            qdnqidniqndqnd
-            qwdiunqdnqwnd</p>
+            <p>{event.about}</p>
         </div>
     </div>
 

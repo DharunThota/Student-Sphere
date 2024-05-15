@@ -14,7 +14,7 @@ function Events(){
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get("http://localhost:3000/api/v1/events/Upcoming");
+                const response = await axios.get("http://localhost:3000/events/Upcoming");
                 setEvents(response.data);
             } catch (error) {
                 console.error("Error fetching data: ", error);
@@ -36,10 +36,9 @@ function Events(){
                 <div className="container">
                     {events.map((event) => (
                         <EventCard
-                            id = {event.id}
-                            key={event.id}
+                            id = {event.event_id}
+                            key={event.event_id}
                             name={event.name}
-                            img={event.imgURL}
                             date={event.date}
                             time={event.time}
                             venue={event.venue}

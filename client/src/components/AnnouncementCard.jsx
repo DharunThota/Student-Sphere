@@ -25,7 +25,7 @@ function AnnouncementCard(props) {
         centered
       >
         <Modal.Header closeButton>
-          <Modal.Title>{props.heading}</Modal.Title>
+          <Modal.Title>{props.club}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {props.desc}

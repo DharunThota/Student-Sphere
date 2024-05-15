@@ -11,9 +11,10 @@ function EventCard(props) {
   return (
     <div className="ecard" onClick={handleCLick}>
       <div>
-        <img src={props.img} alt="avatar_img" />
+        <img src="https://picsum.photos/220" alt="avatar_img" />
       </div>
-      <h1>{props.name}</h1>
+      <h1>{props.title}</h1>
+      <h3>{props.name}</h3>
       <div className="body">   
         <p>{props.date}</p>  
         <break />
