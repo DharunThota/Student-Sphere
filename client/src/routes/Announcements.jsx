@@ -8,7 +8,6 @@ function Events(){
     return(
         <div>
         <Heading name="Announcements" />
-        <ButtonGroup/>
             <div>
                 {Announcementlist.map((event) => (
                     <AnnouncementCard
