@@ -24,7 +24,7 @@ function App() {
           <Route path='/clubs' Component={Clubs} />
           <Route path='/clubs/:id' Component={ClubPage} />
           <Route path='/dashboard' Component={DashBoard} />
-          <Route path='/edit' Component={EditClub} />
+          <Route path='/edit/club' Component={EditClub} />
         </Routes>
       </Router>
     </UserContextProvider>

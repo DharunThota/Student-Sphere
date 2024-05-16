@@ -26,4 +26,10 @@
     font-size: 32px;
     padding: 10px;
     border-radius: 3%;
+    cursor: pointer;
+}
+
+.buttons{
+    display: flex;
+    gap: 10px;
 }

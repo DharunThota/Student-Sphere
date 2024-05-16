@@ -81,6 +81,17 @@ app.put("/clubs/:id", async (req, res) => {
     }
 });
 
+//get events from a club
+app.get("/clubs/:id/events", async(req, res) => {
+    try {
+        const result = await db.query("select * from event where club_id=$1 order by status desc", [req.params.id]);
+        //console.log(result.rows)
+        res.json(result.rows);
+    } catch (error) {
+        console.log(error);
+    }
+})
+
 //get members
 app.get("/clubs/:id/members", async(req, res) => {
     try {
@@ -175,8 +186,9 @@ app.get("/api/v1/events/:id", async(req, res) => {
 //post an event
 app.post("/events", async (req, res) => {
     try{
-        const result = await db.query("insert into event(club_id, type, description, date, time, venue, status, title) values($1,$2,$3,$4,$5,$6,$7,$8) returning *;",
-            [req.body.club_id, req.body.type, req.body.description, req.body.date, req.body.time, req.body.venue, req.body.status, req.body.title]
+        //console.log(req.body)
+        const result = await db.query("insert into event(club_id, type, about, date, time, venue, status, title) values($1,$2,$3,$4,$5,$6,'Upcoming',$7) returning *;",
+            [req.body.club_id, req.body.type, req.body.about, req.body.date, req.body.time, req.body.venue, req.body.title]
         );
         res.status(200).json(result.rows);
     } catch(error) {
@@ -187,8 +199,9 @@ app.post("/events", async (req, res) => {
 //update event
 app.put("/events/:id", async (req, res) => {
     try {
-        const result = await db.query("update event set club_id=$1, type=$2, description=$3, date=$4, time=$5, venue=$6, status=$7, title=$8 where event_id=$9 returning *",
-            [req.body.club_id, req.body.type, req.body.description, req.body.date, req.body.time, req.body.venue, req.body.status, req.body.title, req.params.id]
+        //console.log(req.body)
+        const result = await db.query("update event set type=$1, about=$2, date=$3, time=$4, venue=$5, title=$6 where event_id=$7 returning *",
+            [req.body.type, req.body.about, req.body.date, req.body.time, req.body.venue, req.body.title, req.params.id]
         );
         res.status(200).json(result.rows);
     } catch (error) {
@@ -196,10 +209,21 @@ app.put("/events/:id", async (req, res) => {
     }
 })
 
+//change status of an event
+app.patch("/events/:id", async(req, res) => {
+    try {
+        const result = await db.query("update event set status=$1 where event_id=$2", [req.body.status, req.params.id])
+        console.log(result.rows)
+    } catch (error) {
+        console.log(error)
+    }
+})
+
 //delete event
 app.delete("/events/:id", async (req, res) => {
     try {
-        const result = await db.query("delete from event where id=$1 returning *", [req.params.id]);
+        console.log("deleted", req.params.id)
+        const result = await db.query("delete from event where event_id=$1 returning *", [req.params.id]);
         res.status(200).json(result.rows);
     } catch (error) {
         console.log(error);

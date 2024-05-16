@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios';
 import Navbar from '../components/Navbar'
 import Heading from '../components/Heading'
 import { UserContext } from '../context/UserContext'
 import SubHeading from '../components/SubHeading';
 import Members from '../components/Members';
+import ClubEvents from '../components/ClubEvents';
 import "../styles/Dashboard.css";
 
 function Dashboard() {
@@ -41,12 +41,13 @@ function Dashboard() {
 			<div className='main'>
 				<div className='top'>
 					<SubHeading name={currentUser.name} />
-					<button className='btn btn-outline-secondary' onClick={() => navigate("/edit")}>Edit Club</button>
+					<button className='btn btn-outline-secondary' onClick={() => navigate("/edit/club")}>Edit Club</button>
 				</div>
 				<div className='options'>
 					<div className='option' onClick={handleMembers}>{"Members >"}</div>
 					{showMembers && <Members />}
 					<div className='option' onClick={handleEvents}>{"Events >"}</div>
+					{showEvents && <ClubEvents/>}
 					<div className='option' onClick={handleAnnouncements}>{"Announcements >"}</div>
 				</div>
 			</div>

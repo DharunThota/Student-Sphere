@@ -1,5 +1,5 @@
 .section{
-    height:77vh;
+    height:auto;
 }
 .head{
     color:black;
@@ -23,13 +23,14 @@
     display:flex;
     flex-direction: row;
     padding-left:30px;
+    padding-bottom: 30px;
 }
 .Card{
     margin:10px;
     margin-right:40px;
     border-radius:15px;
     background-color:#D6D8DC;
-    height:55vh;
+    height: auto;
     width:27vw;
     transition:background-color 0.3s ease-in-out,width 0.3s ease-in-out,height 0.3s ease-in-out;
     padding:20px;
@@ -38,7 +39,7 @@
 .Card:hover{
     background-color:#A1A2A4;
     width:29vw;
-    height:57vh;
+    height: ;
 }
 .image{
     height:30vh;

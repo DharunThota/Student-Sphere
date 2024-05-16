@@ -24,7 +24,7 @@ function Section(props){
                 {props.card.map((item) => {
                     return(
                         <div className="Card">
-                            <img className="image" src={item.img} alt={item.alt}/>
+                            {props.title !== "Announcements" && <img className="image" src="https://picsum.photos/220" alt={item.alt}/>}
                             <h2 className="cardHead" >{item.name}</h2>
                             <p className="cardDesc" >{item.description}</p>
                         </div>
