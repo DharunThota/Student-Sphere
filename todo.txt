@@ -5,3 +5,7 @@ PRANAAV, ROHAN AND PRATYEK
 fix frontend issues (aesthetics/design)
 
 clear up messed up stuff
+
+QUERIES
+
+
