@@ -21,22 +21,25 @@ function Events(){
     }, [])
 
     return(
-
-        <div>
+        <>
             <Navbar />
-            <Heading name="Announcements" />
-            <div>
-                {announcements.map((ann) => (
-                    <AnnouncementCard
-                        key={ann.id}
-                        heading={ann.about}
-                        desc={ann.about}
-                        club={ann.name}
-                        date={ann.date}
-                    />
-                ))}
+            <div className="club-container">
+                <Heading name="Announcements" />
+                <div>
+                    {announcements.map((ann) => (
+                        <AnnouncementCard
+                            key={ann.id}
+                            heading={ann.about}
+                            desc={ann.about}
+                            club={ann.name}
+                            date={ann.date}
+                        />
+                    ))}
+                </div>
             </div>
-        </div>
+        </>
+
+        
     );
 }
 

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Heading from '../components/Heading'
@@ -10,11 +10,17 @@ import "../styles/Dashboard.css";
 import ClubAnnouncements from '../components/ClubAnnouncements'
 
 function Dashboard() {
-	const {currentUser, privilege} = useContext(UserContext);
+	const {currentUser, privilege, isLoggedIn} = useContext(UserContext);
 	const [showMembers, setShowMembers] = useState(false);
 	const [showEvents, setShowEvents] = useState(false);
 	const [showAnnouncements, setShowAnnouncements] = useState(false);
 	let navigate = useNavigate();
+
+	useEffect(() => {
+		if(!isLoggedIn) {
+			navigate("/")
+		}
+	}, [isLoggedIn])
 
 	function handleMembers() {
 		setShowMembers(!showMembers);

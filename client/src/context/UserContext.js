@@ -4,14 +4,14 @@ export const UserContext = React.createContext();
 
 export function UserContextProvider({children}){
     const [currentUser, setCurrentUser] = useState({
-        fname: "Dharun",
-        lname: "Thota",
-        sid: "cs22b1083",
-        club_id: "1",
-        name: "CS Club",
+        fname: "",
+        lname: "",
+        sid: "",
+        club_id: "",
+        name: "",
     }); 
-    const [isLoggedIn, setLoggedIn] = useState(true);
-    const [privilege, setPrivilege] = useState(3);
+    const [isLoggedIn, setLoggedIn] = useState(false);
+    const [privilege, setPrivilege] = useState('');
 
     return (
         <UserContext.Provider value={{currentUser, setCurrentUser, isLoggedIn, setLoggedIn, privilege, setPrivilege}}>

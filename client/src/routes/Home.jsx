@@ -46,21 +46,34 @@
 // }
 
 // export default Home;
-import React from "react";
+import React, { useEffect, useState } from "react";
 import '../styles/Home.css';
 import Navbar from "../components/Navbar";
 import Carouselcomp from "../components/carousel";
 import Section from "../components/Section";
+import axios from "axios";
 // import one from '../components/one.jpeg';
 // import two from '../components/two.jpeg';
 // import three from '../components/three.jpeg';
 
 function Home() {
-    const mediaList=[{url:"https://images.hellomagazine.com/horizon/landscape/e7a91ee737a6-scarlett-johansson-pink-dress.jpg?tx=c_limit,w_960",type:"jpg"},{url:"https://www.byrdie.com/thmb/hOTeUiExvppmw_bGY1mxdfPfcEU=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/angelinajoliecloudnails-d6b590cfef504bb2af12b1f9e9f1bb00.png",type:"jpg"},{url:"https://s.abcnews.com/images/US/emma-stone-ap-hb-180814_hpMain_16x9_992.jpg?w=992",type:"jpg"}]
-    const clubs=[{alt:'one',name:'Club 1',description:'This is a description of club 1'},{alt:'two',name:'Club 2',description:'This is a description of club 2'},{alt:'three',name:'Club 3',description:'This is a description of club 3'}];
-    const announcements=[{alt:'one',name:'Announcement 1',description:'This is a description of announcement 1'},{alt:'two',name:'Announcement 2',description:'This is a description of announcement 2'},{alt:'three',name:'Announcement 3',description:'This is a description of announcement 3'}];
-    const events=[{alt:'one',name:'Event 1',description:'This is a description of event 1'},{alt:'two',name:'Event 2',description:'This is a description of event 2'},{alt:'three',name:'Event 3',description:'This is a description of event 3'}];
-    
+    const mediaList=[{url:"https://www.iiitdm.ac.in/_app/immutable/assets/Stud_Achi1.b802a2f2.webp",type:"jpg"},{url:"https://www.iiitdm.ac.in/_app/immutable/assets/Stud_Achi.d011c132.webp",type:"jpg"}]
+    const [clubs, setClubs] = useState([]);
+    const [announcements, setAnnouncements] = useState([]);
+    const [events, setEvents] = useState([]);
+   
+    useEffect(() => {
+        async function fetchData(){
+            const r1 = await axios.get("http://localhost:3000/clubs");
+            setClubs(r1.data)
+            const r2 = await axios.get("http://localhost:3000/announcements");
+            setAnnouncements(r2.data)
+            const r3 = await axios.get("http://localhost:3000/events");
+            setEvents(r3.data)
+        }
+        fetchData();
+    }, []);
+
     return (
         <div className="homePage">
             <Navbar/>

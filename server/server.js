@@ -41,7 +41,7 @@ app.post("/login", async(req, res) => {
 //get all clubs
 app.get("/clubs", async(req, res) => {
     try {
-        const result = await db.query("SELECT * FROM club");
+        const result = await db.query("SELECT * FROM club order by random() limit 3");
         //console.log(result.rows);
         res.json(result.rows)
     } catch (error) {
@@ -118,8 +118,8 @@ app.post("/clubs/:id/members", async(req, res) => {
     try {
         const student = await db.query("insert into student(student_id, fname, lname, age, email) values($1, $2, $3, $4, $5)", 
             [req.body.studentId, req.body.fname, req.body.lname, req.body.age, req.body.email])
-        const member = await db.query("insert into member_of(member_id, club_id, position) values($1, $2, 'member')", 
-            [req.body.studentId, req.params.id])
+        const member = await db.query("insert into member_of(member_id, club_id, position) values($1, $2, $3)", 
+            [req.body.studentId, req.params.id, req.body.position])
         res.json({
             student: student.rows,
             member: member.rows,
@@ -143,9 +143,6 @@ app.delete("/clubs/:id/members/:student", async(req, res) => {
         console.log(error);
     }
 })
-
-//update position
-
 
 /*ANNOUNCEMENTS */
 //get all announcements
@@ -195,6 +192,16 @@ app.delete("/announcements/:id", async (req, res) => {
 
 
 /*EVENTS */
+//get all events
+app.get("/events", async(req, res) => {
+    try {
+        const result = await db.query("select * from event order by status desc");
+        res.json(result.rows);
+    } catch (error) {
+        console.log(error)
+    }
+})
+
 // get upcoming/ongoing/completed events
 app.get("/events/:status", async (req, res) => {
     //console.log(req.params.status)

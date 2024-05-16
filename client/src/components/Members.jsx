@@ -11,6 +11,7 @@ function Members() {
     const [fname, setFname] = useState('')
     const [lname, setLname] = useState('')
     const [email, setEmail] = useState('')
+    const [position, setPosition] = useState('')
     const [show, setShow] = useState(false)
 
     useEffect(() => {
@@ -28,7 +29,7 @@ function Members() {
     async function handleSubmit(event){
         event.preventDefault();
         try {
-            const response = await axios.post(`http://localhost:3000/clubs/${currentUser.club_id}/members`, {studentId, age, fname, lname, email})
+            const response = await axios.post(`http://localhost:3000/clubs/${currentUser.club_id}/members`, {studentId, age, fname, lname, email, position})
             setShow(false)
         } catch (error) {
             console.log(error)
@@ -50,6 +51,7 @@ function Members() {
         setFname('')
         setLname('')
         setEmail('')
+        setPosition('')
     }
     const handleClose = () => setShow(false);  
 
@@ -67,7 +69,6 @@ function Members() {
                             <th scope="col">Name</th>
                             <th scope="col">Age</th>
                             <th scope="col">Position</th>
-                            {privilege === 3 && <th scope="col">Edit</th>}
                             {privilege === 3 && <th scope="col">Remove</th>}
                         </tr>
                     </thead>
@@ -80,8 +81,7 @@ function Members() {
                                     <td>{member.fname} {member.lname}</td>
                                     <td>{member.age}</td>
                                     <td>{member.position}</td>
-                                    {privilege === 3 && <td><button className="btn btn-warning">Update</button></td>}
-                                    {privilege === 3 && <td><button className="btn btn-danger" onClick={() => handleDelete(member.student_id)}>Delete</button></td>}
+                                    {(privilege === 3 && member.position !== 'lead') ? <td><button className="btn btn-danger" onClick={() => handleDelete(member.student_id)}>Delete</button></td> : <td></td>}
                                 </tr>
                             );
                         })}
@@ -100,8 +100,8 @@ function Members() {
                                 <input value={studentId} onChange={(e) => setStudentId(e.target.value)} type="text" className="form-control" placeholder="Student ID"/>
                             </div>
                             <div className="col-6 mb-3">
-                                <label htmlFor="age">Age</label>
-                                <input value={age} onChange={(e) => setAge(e.target.value)} type="text" className="form-control" placeholder="Age"/>
+                                <label htmlFor="position">Position</label>
+                                <input value={position} onChange={(e) => setPosition(e.target.value)} type="text" className="form-control" placeholder="Positon"/>
                             </div>
                             <div className="col-6 mb-3">
                                 <label htmlFor="fname">First Name</label>
@@ -111,7 +111,11 @@ function Members() {
                                 <label htmlFor="lname">Last Name</label>
                                 <input value={lname} onChange={(e) => setLname(e.target.value)} type="text" className="form-control" placeholder="Last Name"/>
                             </div>
-                            <div className="col mb-3">
+                            <div className="col-6 mb-3">
+                                <label htmlFor="age">Age</label>
+                                <input value={age} onChange={(e) => setAge(e.target.value)} type="text" className="form-control" placeholder="Age"/>
+                            </div>
+                            <div className="col-6 mb-3">
                                 <label htmlFor="email">Email</label>
                                 <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" className="form-control" placeholder="Email"/>
                             </div>
