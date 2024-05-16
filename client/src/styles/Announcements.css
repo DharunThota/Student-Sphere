@@ -17,17 +17,18 @@
     justify-content: space-between;
     padding: 10px;
     margin: 10px;
-
+    font-family: monospace;
     transition: scale 1s;
 }
 
 .acard h5 {
     font-size: 1.1rem;
+    font-family: monospace;
     margin: 0;
 }
 
 .acard p {
-    font-family: 'Roboto', sans-serif;
+    font-family: monospace;
     overflow: hidden;
 }
 

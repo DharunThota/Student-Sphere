@@ -22,7 +22,7 @@
     display: flex;
     justify-content: center;
     color: #000;
-    font-family: 'Roboto', sans-serif;
+    font-family: monospace;
     font-size: 24px;
     font-weight: 600;
     overflow-wrap: break-word;
@@ -34,7 +34,7 @@
     display: flex;
     justify-content: center;
     color: #000;
-    font-family: 'Roboto', sans-serif;
+    font-family: monospace;
     font-size: 18px;
     font-weight: 500;
     overflow-wrap: break-word;
@@ -60,7 +60,7 @@
 }
 
 .ecard .body p {   
-    font-family: 'Roboto', sans-serif;
+    font-family: monospace;
     font-size: 14px;
     margin: 0;   
 }

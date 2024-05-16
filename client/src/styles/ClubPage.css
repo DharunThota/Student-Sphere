@@ -21,12 +21,14 @@
 
 .info p {
     font-size: 20px;
+    font-family: monospace;
     font-weight: 600;
     margin: 20px;
   }
 
 .description {
     font-size: 20px;
+    font-family: monospace;
     font-weight: 600;
     margin-top: 20px;
     border :1px solid black;
@@ -37,4 +39,5 @@
     font-size: 16px;
     font-weight: 400;
     margin-top: 20px;
+    font-family: monospace;
   }

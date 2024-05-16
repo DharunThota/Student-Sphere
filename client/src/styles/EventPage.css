@@ -14,6 +14,7 @@
 }
 
 .byWho {
+  font-family: monospace;
 padding: 10px 10px 1px 10px;
   font-size: 20px;
   font-weight: 600;
@@ -22,6 +23,7 @@ padding: 10px 10px 1px 10px;
   background-color: lightblue;
 }
 .eventDetails {
+  font-family: monospace;
   display: flex;
   font-size: 20px;
   font-weight: 600;
@@ -34,6 +36,7 @@ padding: 10px 10px 1px 10px;
 }
 
 .eventDescription {
+  font-family: monospace;
   font-size: 20px;
   font-weight: 600;
   margin-top: 20px;
@@ -41,6 +44,7 @@ padding: 10px 10px 1px 10px;
   padding: 5%;
 }
 .eventDescription p {
+  font-family: monospace;
   font-size: 16px;
   font-weight: 400;
   margin-top: 20px;
