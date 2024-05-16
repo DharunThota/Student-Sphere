@@ -13,7 +13,7 @@ function AnnouncementCard(props) {
     <div className="container" >
       <div className="acard" onClick={handleShow}>
         <p>{props.heading}</p>
-        <h5>{props.club}</h5>
+        <h5>{props.club} | {props.date}</h5>
       </div>
 
       <Modal 
@@ -25,7 +25,7 @@ function AnnouncementCard(props) {
         centered
       >
         <Modal.Header closeButton>
-          <Modal.Title>{props.club}</Modal.Title>
+          <Modal.Title>{props.club} | {props.date}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {props.desc}

@@ -92,6 +92,15 @@ app.get("/clubs/:id/events", async(req, res) => {
     }
 })
 
+app.get("/clubs/:id/announcements", async(req, res) => {
+    try {
+        const result = await db.query("select * from announcement where club_id=$1 order by date desc", [req.params.id])
+        res.json(result.rows);
+    } catch (error) {
+        console.log(error);
+    }
+})
+
 //get members
 app.get("/clubs/:id/members", async(req, res) => {
     try {
@@ -116,7 +125,7 @@ app.get("/clubs/:id/members", async(req, res) => {
 //get all announcements
 app.get("/announcements", async (req, res) => {
     try {
-        const result = await db.query("select id, name, about from announcement a join club c on a.club_id=c.club_id");
+        const result = await db.query("select id, name, about, date from announcement a join club c on a.club_id=c.club_id order by date desc");
         //console.log(result.rows);
         res.status(200).json(result.rows);
     } catch (error) {
@@ -127,8 +136,8 @@ app.get("/announcements", async (req, res) => {
 //post an announcement
 app.post("/announcements", async (req, res) => {
     try {
-        const result = await db.query("insert into events(club_id, description, date, title) values($1,$2,$3,$4) returning *", 
-            [req.body.club_id, req.body.description, req.body.date, req.body.title]
+        const result = await db.query("insert into announcement(club_id, about, date) values($1,$2,$3) returning *", 
+            [req.body.club_id, req.body.about, req.body.date]
         );
         res.status(200).json(result.rows);
     } catch (error) {
@@ -137,10 +146,10 @@ app.post("/announcements", async (req, res) => {
 });
 
 //edit an announcement
-app.put("/announcemets/:id", async(req, res) => {
+app.put("/announcements/:id", async(req, res) => {
     try {
-        const result = await db.query("update announcement set club_id=$1, description=$2, date=$3, title=$4 where id=$5", 
-            [req.body.club_id, req.body.description, req.body.date, req.body.title, req.params.id]
+        const result = await db.query("update announcement set about=$1, date=$2 where id=$3", 
+            [req.body.about, req.body.date, req.params.id]
         );
         res.status(200).json(result.rows);
     } catch (error) {

@@ -7,6 +7,7 @@ import SubHeading from '../components/SubHeading';
 import Members from '../components/Members';
 import ClubEvents from '../components/ClubEvents';
 import "../styles/Dashboard.css";
+import ClubAnnouncements from '../components/ClubAnnouncements'
 
 function Dashboard() {
 	const {currentUser} = useContext(UserContext);
@@ -49,9 +50,9 @@ function Dashboard() {
 					<div className='option' onClick={handleEvents}>{"Events >"}</div>
 					{showEvents && <ClubEvents/>}
 					<div className='option' onClick={handleAnnouncements}>{"Announcements >"}</div>
+					{showAnnouncements && <ClubAnnouncements/>}
 				</div>
 			</div>
-			
 		</>
 	)
 }

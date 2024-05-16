@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { UserContext } from '../context/UserContext';
+import Navbar from '../components/Navbar';
 import "../styles/Edit.css";
 
 function EditClub(props){
@@ -37,6 +38,7 @@ function EditClub(props){
                 room_no: roomNo,
                 desc: desc
             });
+            navigate("/dashboard");
             console.log(response.data);
         } catch (error) {
             console.log(error);
@@ -44,36 +46,40 @@ function EditClub(props){
     }
 
     return(
-        <div className="form-container">
-            <h2>Edit Club Information</h2>
-            <form onSubmit={handleSubmit}>
-            <div className="form-group">
-                <label for="clubName">Club Name:</label>
-                <input type="text" className="form-control" id="clubName" name="clubName"
-                value={clubName}
-                onChange={(e) => setClubName(e.target.value)}/>
+        <>
+            <Navbar />
+            <div className="form-container">
+                <h2>Edit Club Information</h2>
+                <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label for="clubName">Club Name:</label>
+                    <input type="text" className="form-control" id="clubName" name="clubName"
+                    value={clubName}
+                    onChange={(e) => setClubName(e.target.value)}/>
+                </div>
+                <div className="form-group">
+                    <label for="roomNumber">Room Number:</label>
+                    <input type="text" className="form-control" id="roomNumber" name="roomNumber"
+                    value={roomNo}
+                    onChange={(e) => setRoomNo(e.target.value)}
+                    />
+                </div>
+                <div className="form-group">
+                    <label for="clubType">Club Type:</label>
+                    <input type="text" className="form-control" id="clubType" name="clubType"
+                    value={type}
+                    onChange={(e) => setType(e.target.value)} />
+                </div>
+                <div className="form-group">
+                    <label for="clubDescription">Club Description:</label>
+                    <textarea className="form-control" id="clubDescription" name="clubDescription" rows="4" value={desc} onChange={(e) => setDesc(e.target.value)} />
+                </div>
+                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="reset" className="btn btn-secondary" onClick={() => navigate("/dashboard")}>Cancel</button>
+                </form>
             </div>
-            <div className="form-group">
-                <label for="roomNumber">Room Number:</label>
-                <input type="text" className="form-control" id="roomNumber" name="roomNumber"
-                value={roomNo}
-                onChange={(e) => setRoomNo(e.target.value)}
-                />
-            </div>
-            <div className="form-group">
-                <label for="clubType">Club Type:</label>
-                <input type="text" className="form-control" id="clubType" name="clubType"
-                value={type}
-                onChange={(e) => setType(e.target.value)} />
-            </div>
-            <div className="form-group">
-                <label for="clubDescription">Club Description:</label>
-                <textarea className="form-control" id="clubDescription" name="clubDescription" rows="4" value={desc} onChange={(e) => setDesc(e.target.value)} />
-            </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
-            <button type="reset" className="btn btn-secondary" onClick={() => navigate("/dashboard")}>Cancel</button>
-            </form>
-        </div>
+        </>
+        
     )
 }
 

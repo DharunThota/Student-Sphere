@@ -32,6 +32,7 @@ function Events(){
                         heading={ann.about}
                         desc={ann.about}
                         club={ann.name}
+                        date={ann.date}
                     />
                 ))}
             </div>
