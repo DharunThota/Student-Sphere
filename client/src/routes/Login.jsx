@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar'
 import { UserContext } from '../context/UserContext'
 
 function Login() {
-    const {setCurrentUser, isLoggedIn, setLoggedIn} = useContext(UserContext);
+    const {setPrivilege, setCurrentUser, isLoggedIn, setLoggedIn} = useContext(UserContext);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     let navigate = useNavigate();
@@ -28,6 +28,13 @@ function Login() {
             setPassword("");
             setLoggedIn(true);
             setCurrentUser(response.data);
+            if(response.data.position === "lead") {
+                setPrivilege(3);
+            } else if(response.data.position === "coordinator"){
+                setPrivilege(2);
+            } else {
+                setPrivilege(1);
+            }
             navigate("/dashboard");
         } catch (error) {
             console.log(error)

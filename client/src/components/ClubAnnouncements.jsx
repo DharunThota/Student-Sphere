@@ -4,7 +4,7 @@ import { UserContext } from '../context/UserContext';
 import { Modal, Button } from 'react-bootstrap';
 
 function ClubAnnouncements() {
-    const {currentUser} = useContext(UserContext)
+    const {currentUser, privilege} = useContext(UserContext)
     const [announcements, setAnnouncements] = useState([])
     const [date, setDate] = useState('')
     const [about, setAbout] = useState('')
@@ -77,17 +77,17 @@ function ClubAnnouncements() {
         <>
             <div className='top'>
                 <h3>Announcements</h3>
-                <button className="btn btn-primary" onClick={handleAddShow}>Add Announcement</button>
+                {privilege > 1 && <button className="btn btn-primary" onClick={handleAddShow}>Add Announcement</button>}
             </div>
             {announcements && announcements.map((announcement) => {
                 return (
                     <div className="card" key={announcement.id}>
                         <div className="card-body">
                             <h5 className="card-title">{announcement.about}</h5>
-                            <div className='buttons'>
+                            {privilege > 1 && <div className='buttons'>
                                 <button className="btn btn-secondary" onClick={() => handleEditShow(announcement)}>Edit</button>
                                 <button className="btn btn-danger" onClick={() => handleDelete(announcement.id)}>Delete </button>
-                            </div>
+                            </div>}
                         </div>
                     </div>
                 )

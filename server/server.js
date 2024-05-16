@@ -25,9 +25,8 @@ app.post("/login", async(req, res) => {
         const result = await db.query("select * from login where username=$1", [req.body.username])
         const password = result.rows[0].password
         if(password === req.body.password){
-            //res.json(result.rows[0])
-            const student = await db.query("select fname, lname, student_id, c.club_id as club_id, name from student s join member_of m on m.member_id = s.student_id join club c on c.club_id=m.club_id where student_id = $1", [req.body.username]);
-            console.log(student.rows[0]);
+            const student = await db.query("select fname, lname, student_id, c.club_id as club_id, name, position from student s join member_of m on m.member_id = s.student_id join club c on c.club_id=m.club_id where student_id = $1", [req.body.username]);
+            //console.log(student.rows[0]);
             res.json(student.rows[0]);
         } else {
             console.log("wrong");

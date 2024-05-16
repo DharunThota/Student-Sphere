@@ -11,9 +11,10 @@ export function UserContextProvider({children}){
         name: "CS Club",
     }); 
     const [isLoggedIn, setLoggedIn] = useState(true);
+    const [privilege, setPrivilege] = useState(3);
 
     return (
-        <UserContext.Provider value={{currentUser, setCurrentUser, isLoggedIn, setLoggedIn}}>
+        <UserContext.Provider value={{currentUser, setCurrentUser, isLoggedIn, setLoggedIn, privilege, setPrivilege}}>
             {children}
         </UserContext.Provider>
       )

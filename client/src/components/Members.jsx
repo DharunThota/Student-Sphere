@@ -3,7 +3,7 @@ import axios from 'axios'
 import { UserContext } from '../context/UserContext'
 
 function Members() {
-    const {currentUser} = useContext(UserContext)
+    const {currentUser, privilege} = useContext(UserContext)
     const [members, setMembers] = useState([])
 
     useEffect(() => {
@@ -29,8 +29,8 @@ function Members() {
                             <th scope="col">Name</th>
                             <th scope="col">Age</th>
                             <th scope="col">Position</th>
-                            <th scope="col">Edit</th>
-                            <th scope="col">Remove</th>
+                            {privilege === 3 && <th scope="col">Edit</th>}
+                            {privilege === 3 && <th scope="col">Remove</th>}
                         </tr>
                     </thead>
                     <tbody>
@@ -42,8 +42,8 @@ function Members() {
                                     <td>{member.fname} {member.lname}</td>
                                     <td>{member.age}</td>
                                     <td>{member.position}</td>
-                                    <td><button className="btn btn-warning">Update</button></td>
-                                    <td><button className="btn btn-danger">Delete</button></td>
+                                    {privilege === 3 && <td><button className="btn btn-warning">Update</button></td>}
+                                    {privilege === 3 && <td><button className="btn btn-danger">Delete</button></td>}
                                 </tr>
                             );
                         })}

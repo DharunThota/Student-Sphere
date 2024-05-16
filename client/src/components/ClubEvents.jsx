@@ -4,7 +4,7 @@ import { UserContext } from '../context/UserContext';
 import { Modal, Button } from 'react-bootstrap';
 
 function ClubEvents() {
-    const {currentUser} = useContext(UserContext)
+    const {currentUser, privilege} = useContext(UserContext)
     const [events, setEvents] = useState([])
     const [title, setTitle] = useState('')
     const [type, setType] = useState('')
@@ -105,19 +105,19 @@ function ClubEvents() {
         <>
             <div className='top'>
                 <h3>Events</h3>
-                <button className="btn btn-primary" onClick={handleAddShow}>Add Event</button>
+                {privilege > 1 && <button className="btn btn-primary" onClick={handleAddShow}>Add Event</button>}
             </div>
             {events && events.map((event) => {
                 return (
                     <div className="card" key={event.event_id}>
                         <div className="card-body">
                             <h5 className="card-title">{event.title} ({event.status})</h5>
-                            <div className='buttons'>
+                            {privilege > 1 && <div className='buttons'>
                                 {event.status !== 'Completed' && <button className="btn btn-secondary" onClick={() => handleEditShow(event)}>Edit</button>}
                                 {event.status === 'Ongoing' && <button className="btn btn-success" onClick={() => handleStatus(event.event_id, "Completed")}>Finish</button>}
                                 {event.status === 'Upcoming' && <button className="btn btn-success" onClick={() => handleStatus(event.event_id, "Ongoing")}>Start</button>}
                                 <button className="btn btn-danger" onClick={() => handleDelete(event.event_id)}>Delete </button>
-                            </div>
+                            </div>}
                         </div>
                     </div>
                 )

@@ -10,7 +10,7 @@ import "../styles/Dashboard.css";
 import ClubAnnouncements from '../components/ClubAnnouncements'
 
 function Dashboard() {
-	const {currentUser} = useContext(UserContext);
+	const {currentUser, privilege} = useContext(UserContext);
 	const [showMembers, setShowMembers] = useState(false);
 	const [showEvents, setShowEvents] = useState(false);
 	const [showAnnouncements, setShowAnnouncements] = useState(false);
@@ -42,7 +42,7 @@ function Dashboard() {
 			<div className='main'>
 				<div className='top'>
 					<SubHeading name={currentUser.name} />
-					<button className='btn btn-outline-secondary' onClick={() => navigate("/edit/club")}>Edit Club</button>
+					{privilege === 3 && <button className='btn btn-outline-secondary' onClick={() => navigate("/edit/club")}>Edit Club</button>}
 				</div>
 				<div className='options'>
 					<div className='option' onClick={handleMembers}>{"Members >"}</div>
