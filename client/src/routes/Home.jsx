@@ -7,7 +7,7 @@ import Section from "../components/Section";
 import axios from "axios";
 
 function Home() {
-    const mediaList=[{url:"https://www.iiitdm.ac.in/_app/immutable/assets/Stud_Achi1.b802a2f2.webp",type:"jpg"},{url:"https://www.iiitdm.ac.in/_app/immutable/assets/SIXTH_INTER_IIIT_SPORTS_MEET_2024.00fffeb6.webp",type:"jpg"}]
+    const mediaList=[{url:"https://www.iiitdm.ac.in/_app/immutable/assets/Stud_Achi1.b802a2f2.webp",type:"jpg"},{url:"https://www.iiitdm.ac.in/_app/immutable/assets/SIXTH_INTER_IIIT_SPORTS_MEET_2024.00fffeb6.webp",type:"jpg"}, {url:"https://www.iiitdm.ac.in/_app/immutable/assets/Stud_Achi.d011c132.webp",type:"jpg"}]
     const [clubs, setClubs] = useState([]);
     const [announcements, setAnnouncements] = useState([]);
     const [events, setEvents] = useState([]);
