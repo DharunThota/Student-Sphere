@@ -20,6 +20,7 @@ const port = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
+//log in a user
 app.post("/login", async(req, res) => {
     try {
         const result = await db.query("select * from login where username=$1", [req.body.username])
@@ -113,9 +114,35 @@ app.get("/clubs/:id/members", async(req, res) => {
 })
 
 //add members
+app.post("/clubs/:id/members", async(req, res) => {
+    try {
+        const student = await db.query("insert into student(student_id, fname, lname, age, email) values($1, $2, $3, $4, $5)", 
+            [req.body.studentId, req.body.fname, req.body.lname, req.body.age, req.body.email])
+        const member = await db.query("insert into member_of(member_id, club_id, position) values($1, $2, 'member')", 
+            [req.body.studentId, req.params.id])
+        res.json({
+            student: student.rows,
+            member: member.rows,
+        })
+    } catch (error) {
+        console.log(error);
+    }
+})
 
 //remove members
-
+app.delete("/clubs/:id/members/:student", async(req, res) => {
+    try {
+        //console.log(req.params.student, req.params.id)
+        const member = await db.query("delete from member_of where member_id=$1 and club_id=$2 returning *", [req.params.student, req.params.id])
+        const student = await db.query("delete from student where student_id=$1 returning *", [req.params.student])
+        res.json({
+            student: student.rows,
+            member: member.rows,
+        })
+    } catch (error) {
+        console.log(error);
+    }
+})
 
 //update position
 

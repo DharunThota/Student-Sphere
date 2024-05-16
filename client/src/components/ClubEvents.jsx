@@ -129,29 +129,29 @@ function ClubEvents() {
                 <Modal.Body>
                     <form action="" onSubmit={handleSubmit}>
                         <div className="row">
-                            <div className="col-6">
+                            <div className="col-6 mb-3">
                                 <label htmlFor="title">Title</label>
                                 <input value={title} onChange={(e) => setTitle(e.target.value)} type="text" className="form-control" placeholder="Title"/>
                             </div>
-                            <div className="col-6">
+                            <div className="col-6 mb-3">
                                 <label htmlFor="type">Type</label>
                                 <input value={type} onChange={(e) => setType(e.target.value)} type="text" className="form-control" placeholder="Type"/>
                             </div>
-                            <div className="col-6">
+                            <div className="col-6 mb-3">
                                 <label htmlFor="date">Date</label>
                                 <input value={date} onChange={(e) => setDate(e.target.value)} type="text" className="form-control" placeholder="Date"/>
                             </div>
-                            <div className="col-6">
+                            <div className="col-6 mb-3">
                                 <label htmlFor="time">Time</label>
                                 <input value={time} onChange={(e) => setTime(e.target.value)} type="text" className="form-control" placeholder="Time"/>
                             </div>
-                            <div className="col">
+                            <div className="col mb-3">
                                 <label htmlFor="venue">Venue</label>
                                 <input value={venue} onChange={(e) => setVenue(e.target.value)} type="text" className="form-control" placeholder="Venue"/>
                             </div>
                         </div>
                         <div className='row'>
-                            <div className="col-11">
+                            <div className="col-11 mb-3">
                                 <label htmlFor="about">About</label>
                                 <textarea value={about} onChange={(e) => setAbout(e.target.value)} type="text" className="form-control" placeholder="About"/>
                             </div>

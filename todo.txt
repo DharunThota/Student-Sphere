@@ -1,10 +1,7 @@
 DHARUN
 club dashboard
 
-PRANAAV AND ROHAN
+PRANAAV, ROHAN AND PRATYEK
 fix frontend issues (aesthetics/design)
-
-PRATYEK
-finish homepage
 
 clear up messed up stuff

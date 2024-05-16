@@ -99,13 +99,13 @@ function ClubAnnouncements() {
                 <Modal.Body>
                     <form action="" onSubmit={handleSubmit}>
                         <div className="row">
-                            <div className="col-6">
+                            <div className="col-6 mb-3">
                                 <label htmlFor="date">Date</label>
                                 <input value={date} onChange={(e) => setDate(e.target.value)} type="text" className="form-control" placeholder="Date"/>
                             </div>
                         </div>
                         <div className='row'>
-                            <div className="col-11">
+                            <div className="col-11 mb-3">
                                 <label htmlFor="about">About</label>
                                 <textarea value={about} onChange={(e) => setAbout(e.target.value)} type="text" className="form-control" placeholder="About"/>
                             </div>
